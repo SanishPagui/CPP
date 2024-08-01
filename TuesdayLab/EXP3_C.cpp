@@ -22,8 +22,6 @@ class Student{
 int main(){
     Student s1("Sanish Pagui",54);
     s1.display();
-    {
-        Student s2("No one",1);
-        s2.display();
-    }
+    Student s2("No one",1);
+    s2.display();
 }
