@@ -9,23 +9,17 @@ class Count{
         Count(int x){
             val=x;
         }
-        Count &operator++(){
+        void operator++(){
             ++val;
-            return *this;
         }
-        Count operator++(int){
-            Count temp=*this;
+        void operator++(int){
             val++;
-            return temp;
         }
-        Count &operator--(){
+        void operator--(){
             ++val;
-            return *this;
         }
-        Count operator--(int){
-            Count temp=*this;
+        void operator--(int){
             val--;
-            return temp;
         }
     void display(){
         cout<<val;

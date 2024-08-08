@@ -17,7 +17,6 @@ int Counter::count = 0;
 void increment(Counter &c){
     c.count++;
 }
-
 int main(){
     Counter c1;
     cout<<"The value of count using object c1: ";

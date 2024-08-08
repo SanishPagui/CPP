@@ -15,8 +15,8 @@ class Op{
         Op operator*(Op &p){
             return Op(num*p.num);
         }
-        Op operator-(Op &p){
-            return Op(num-p.num);
+        Op operator-(int z){
+            return Op(num-z);
         }
         void display(){
             cout<<num;
@@ -30,7 +30,7 @@ int main(){
     x=x*y;
     cout<<"\nx=x*y: ";
     x.display();
-    x=x-y;
+    x=y-5;
     cout<<"\nx=x-y: ";
     x.display();
 

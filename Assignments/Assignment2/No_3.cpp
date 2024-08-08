@@ -3,7 +3,7 @@ using namespace std;
 
 int main(){
     int n,j,k=1;
-    float sum=0,x,fact;
+    double sum=0,x,fact;
     double prod;
     cout<<"Enter the number of terms to evaluate Macluarin's series for sin(x): ";
     cin>>n;

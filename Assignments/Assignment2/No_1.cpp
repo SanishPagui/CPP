@@ -8,7 +8,7 @@ int main(){
     for(int i=0;i<n;i++){
         cout<<"Voter "<<i+1<<",Enter the candidate number between (1-5):";
         cin>>vote;
-        if(vote<0 || vote>5)
+        if(vote<=0 || vote>5)
             spoilt_ballot++;
         else
             count++;

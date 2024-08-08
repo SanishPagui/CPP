@@ -15,7 +15,7 @@ class Cricketers{
         not_out=no;
     }
     void calculateAvg(){
-        avg=runs/(innings-not_out);
+        avg=(float)runs/(float)(innings-not_out);
     }
     void display(){
         cout<<setw(20)<<left<<name;
