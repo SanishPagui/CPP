@@ -14,9 +14,9 @@ class Deque{
             cin>>n;
             front=-1;
             rear=-1;
+            str=new string[n];
         }
         void pushFront(){
-            str=new string[n];
             if(count==n){
                 cout<<"The Deque is full\n";
                 return;
@@ -26,7 +26,9 @@ class Deque{
                 rear=0;
             }
             cout<<"Enter the string: ";
-            cin>>str[front++];
+            cin.ignore();
+            getline(cin,str[front++]);
+            cout<<front;
             count++;
             temp=front;
         }
@@ -38,7 +40,9 @@ class Deque{
             if(rear==0)
                 rear=front;
             cout<<"Enter the string: ";
-            cin>>str[rear++];
+            cin.ignore();
+            getline(cin,str[rear++]);
+            cout<<rear;
             count++;
         }
         void forEach(){
@@ -62,7 +66,7 @@ class Deque{
         void firstThat(){
             string match;
             int flag=0,i;
-            cout<<"Enter the string you want to search for";
+            cout<<"Enter the string you want to search for: ";
             cin>>match;
             for(i=0;i<count;i++){
                 if(str[i].compare(match)==0){
