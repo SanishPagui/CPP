@@ -12,10 +12,10 @@ class Op{
         friend Op operator+(int a,Op &p){
             return Op(a+p.num);
         }
-        Op operator*(Op &p){
+        Op operator *(Op &p){
             return Op(num*p.num);
         }
-        Op operator-(int z){
+        Op operator -(int z){
             return Op(num-z);
         }
         void display(){
@@ -25,13 +25,12 @@ class Op{
 int main(){
     Op x,y(20);
     x=5+y;
-    cout<<"x=5+y:";
+    cout<<"5+y= ";
     x.display();
     x=x*y;
-    cout<<"\nx=x*y: ";
+    cout<<"\nx*y= ";
     x.display();
     x=y-5;
-    cout<<"\nx=x-y: ";
+    cout<<"\nx-y= ";
     x.display();
-
 }

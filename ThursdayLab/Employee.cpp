@@ -43,7 +43,6 @@ class Employee{
     float current_salary,updated_salary;
     string current_status;
     int emp_id;
-
     public:
     int n;
     void display(){
@@ -102,10 +101,7 @@ class Employee{
         status();
     }
     void input(int n){
-        random_device rd;
-        mt19937 gen(rd());
-        uniform_int_distribution<>dist(1000,2000);
-        emp_id=dist(gen);
+        emp_id=rand()%1001+1000;
         cout<<"Enter your details:"<<endl;
         cout<<"Employee "<<n+1<<endl;
         cin.ignore();
@@ -115,7 +111,6 @@ class Employee{
         cin>>current_salary;
     }
 };
-
 void header(){
     cout<<"\n";
         Padding("Id",10);
@@ -135,7 +130,6 @@ void header(){
         RevPadding("Staus",15);
         cout<<endl;
 }
-
 int main(){
     int n;
     cout<<"Enter the number of employee: ";

@@ -1,7 +1,6 @@
 #include<iostream>
 #include<string>
 using namespace std;
-
 class Student{
     int rno;
     string name;
@@ -18,7 +17,6 @@ class Student{
         cout<<"Roll No.: "<<rno<<endl;
     }
 };
-
 int main(){
     Student s1("Sanish Pagui",54);
     s1.display();

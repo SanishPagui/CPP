@@ -27,10 +27,10 @@ class Count{
 };
 int main(){
     Count c(20);
-    cout<<"\nThe prefix increment value: ";
+    cout<<"\nThe initial value: ";
     c.display();
     c++;
-    cout<<"\nThe initial value: ";
+    cout<<"\nThe prefix increment value: ";
     c.display();
     ++c;
     cout<<"\nThe postfix increment value: ";

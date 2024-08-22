@@ -31,6 +31,6 @@ int main(){
         cout<<"\nThe value of count using object c4: ";
         c4.display();   
     }
-    cout<<"\nThe value of count even after destroying object c4 using object c2: ";
+    cout<<"\nAfter destroying object c4 and using object c2 to check the value of count: ";
     c2.display();
 }

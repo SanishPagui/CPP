@@ -6,52 +6,52 @@ class Deque{
     string *str;
     int front,rear;
     int n;
-    int count=0;
+    int countfront=0,countrear=0;
     public:
-        int temp;
+        int temp=0;
         Deque(){
             cout<<"Enter the size of the string array: ";
             cin>>n;
-            front=-1;
-            rear=-1;
+            front=0;
+            rear=0;
             str=new string[n];
         }
-        void pushFront(){
-            if(count==n){
+        void pushFront(int p){
+            if(countrear>countfront){
                 cout<<"The Deque is full\n";
                 return;
             }
-            if(front==-1){
-                front=0;
-                rear=0;
+            if(countfront+countrear==n){
+                cout<<"The Deque is full\n";
+                return;
             }
             cout<<"Enter the string: ";
-            cin.ignore();
-            getline(cin,str[front++]);
-            cout<<front;
-            count++;
+            cin>>str[front++];
+            countfront++;
             temp=front;
         }
-        void pushBehind(){
-            if(count==n){
+        void pushBehind(int p){
+            if((countrear>p && countfront+countrear==n)){
+                cout<<"The Deque is full\n";
+                return;
+            }
+            if(countfront+countrear==n){
                 cout<<"The Deque is full\n";
                 return;
             }
             if(rear==0)
                 rear=front;
             cout<<"Enter the string: ";
-            cin.ignore();
-            getline(cin,str[rear++]);
-            cout<<rear;
-            count++;
+            cin>>str[rear++];
+            countrear++;
         }
         void forEach(){
-            if(front==-1 && rear==-1){
+            if(front==0 && rear==0){
                 cout<<"Deque Empty\n";
                 return;
             }
             cout<<"\nThe deque is:\n";
-            for(int i=0;i<count;i++){
+            for(int i=0;i<(countfront+countrear);i++){
                 cout<<setw(10)<<left<<str[i]<<"\t";
             }
             cout<<"\nThe front elements you have added are:\n";
@@ -68,7 +68,7 @@ class Deque{
             int flag=0,i;
             cout<<"Enter the string you want to search for: ";
             cin>>match;
-            for(i=0;i<count;i++){
+            for(i=0;i<(countfront+countrear);i++){
                 if(str[i].compare(match)==0){
                     flag=1;
                     break;
@@ -80,17 +80,16 @@ class Deque{
                 cout<<"String not found";
         }
         void getLeft(){
-            if(front==-1){
+            if(front==0){
                 cout<<"Deque Empty\n";
                 return;
             }
             printf("\nThe deleted strings from front are: \n");
             while((--front)>=0){
                 cout<<setw(10)<<left<<str[front]<<"\t";
-                count--;
+                countfront--;
             }
-            if(front==0)
-                front=-1;
+            front=countfront=0;
         }
         void getRight(){
             if(rear==temp){
@@ -100,10 +99,9 @@ class Deque{
             printf("\nThe deleted strings from rear are: \n");
             while(rear>temp){
                 cout<<setw(10)<<left<<str[--rear]<<"\t";
-                count--;
+                countrear--;
             }
-            if(rear==temp)
-                rear=-1;
+            rear=countrear=0;
         }
 };
 int main(){
@@ -118,12 +116,12 @@ int main(){
                 cout<<"Enter the number of elements you want to push from front: ";
                 cin>>n;
                 for(int i=0;i<n;i++){
-                    d.pushFront();
+                    d.pushFront(n);
                 }
                 cout<<"Enter the number of elements you want to push from rear: ";
                 cin>>n;
                 for(int i=0;i<n;i++){
-                    d.pushBehind();
+                    d.pushBehind(n);
                 }
                 break;
             case 2:

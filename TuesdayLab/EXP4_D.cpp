@@ -1,49 +1,57 @@
-// Write a C++ program using class string to create two strings and perform the following
-// operations on the strings
-// i. To add two string type objects (s1 = s2 + s3) where s1,s2,s3 are objects
-// ii. To compare two string lengths to print which string is smaller & print accordingly.
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <cstring>
 using namespace std;
 class String{
-    string str;
-    int len;
-    public:
-        String(){
-            str="";
-        }
-        friend istream &operator>>(istream &in,String &s){
-            cout<<"Enter a string: ";
-            in>>s.str;
-            s.len=s.str.length();
-            return in;
-        }
-        friend ostream &operator<<(ostream &out,String &s){
-            out<<"The strings is: ";
-            out<<s.str;
-            out<<"\nThe length of the string is: ";
-            out<<s.len<<endl;
-            return out;
-        }
-        String operator+(String &s){
-            String temp;
-            temp.str=str+" "+s.str;
-            cout<<"The combined string is: "<<temp.str;
-            return temp;
-        }
-        friend void compare(String &s2,String &s3){
-            if(s2.len>s3.len)
-                cout<<"\nLength of the string "<<s2.str<<" > "<<"Length of the string "<<s3.str;
-            else
-                cout<<"\nLength of the string "<<s3.str<<" > "<<"Length of the string "<<s2.str;
-        }
+    char *str;
+public:
+    String(){
+        str=NULL;
+    }
+    String(const char *s){
+        str=new char[strlen(s)+1];
+        strcpy(str,s);
+    }
+    String(const String &obj){
+        str=new char[strlen(obj.str)+1];
+        strcpy(str,obj.str);
+    }
+    ~String(){
+        delete[] str;
+    }
+    friend istream &operator>>(istream &is,String &obj){
+        char temp[1000];
+        is>>temp;
+        obj.str=new char[strlen(temp)+1];
+        strcpy(obj.str,temp);
+        return is;
+    }
+    friend ostream &operator<<(ostream &os,const String &obj){
+        os<<obj.str;
+        return os;
+    }
+    String operator+(const String &a)const{
+        String temp;
+        temp.str=new char[strlen(str)+strlen(a.str)+1];
+        strcpy(temp.str,str);
+        strcat(temp.str,a.str);
+        return temp;
+    }
+    int length()const{
+        return strlen(str);
+    }
 };
 int main(){
-    String s1,s2,s3;
-    cin>>s2;
-    cin>>s3;
-    cout<<s2;
-    cout<<s3;
-    s1=s2+s3;
-    compare(s2,s3);
+    String a,b,c;
+    cout<<"Enter string 1: ";
+    cin>>a;
+    cout<<"Enter string 2: ";
+    cin>>b;
+    c=a+b;
+    cout<<"\nConcatenation: "<<c<<endl;
+    if(a.length()==b.length())
+        cout<<"Both strings are equal in length."<<endl;
+    else if(a.length()<b.length())
+        cout<<"String 1 is shorter than String 2."<<endl;
+    else
+        cout<<"String 2 is shorter than String 1."<<endl;
 }

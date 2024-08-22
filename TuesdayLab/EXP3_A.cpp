@@ -15,7 +15,6 @@ class Student{
         cout<<"Roll No.: "<<rno<<endl;
     }
 };
-
 int main(){
     Student s1("Sanish Pagui",54);
     Student s2("No one",1);

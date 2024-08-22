@@ -1,17 +1,14 @@
 #include<iostream>
 using namespace std;
-
 class Student{
     string name;
     int rno;
     float percent;
     int marks[4];
-
     public:
     void Percentage(){
         percent=((marks[0]+marks[1]+marks[2]+marks[3])/4.0);
     }
-
     void Details(){
         cin.ignore();
         cout<<"Name: ";
@@ -25,14 +22,12 @@ class Student{
         }
         Percentage();
     }
-
     void Display(){
         cout <<"Name: "<<name<<endl;
         cout <<"Roll No.: "<<rno<<endl;
         cout <<"Percentage: " <<percent<<"%"<<endl;
     }
 };
-
 int main(){
     int n;
     cout<<"Enter the number of students: ";
@@ -47,6 +42,7 @@ int main(){
         cout <<"\nDetails of student "<<i+1<<":"<<endl;
         s[i].Display();
     }
+    delete[] s;
     return 0;
 }
 
