@@ -31,7 +31,7 @@ class C:public A{
         }
 };
 int main(){
-    A a(10);
+    A a;
     B b;
     C c;
     cout<<"C class used:\n";
