@@ -1,17 +1,21 @@
 #include<iostream>
 using namespace std;
 class Base{
+    protected:
+        int x;
     public:
-        Base(){
-            cout<<"Base constructor called"<<endl;
+        Base(int a){
+        x=a;
+            cout<<"Base value= "<<x<<endl;
         }
 };
 class Derived:public Base{
     public:
-        Derived(){
-            cout<<"Derived constructor called"<<endl;
+        Derived(int a,int b):Base(a){
+            x=b;
+            cout<<"Derived value= "<<x<<endl;
         }
 };
 int main(){
-    Derived d;
+    Derived d(20,10);
 }
