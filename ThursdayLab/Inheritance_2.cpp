@@ -1,6 +1,5 @@
 #include<iostream>
 using namespace std;
-
 class Student{
     protected:
         string name;
@@ -19,7 +18,6 @@ class Student{
             cout<<"Roll No.: "<<rno<<endl;
         }
 };
-
 class Sports: virtual public Student{
     protected:
         int sportsMarks;
@@ -33,7 +31,6 @@ class Sports: virtual public Student{
             cout<<"Sports Marks: "<<sportsMarks<<endl;
         }
 };
-
 class Exam: virtual public Student{
     protected:
         int marks[6];
@@ -65,7 +62,6 @@ class Exam: virtual public Student{
             return total;
         }
 };
-
 class Result: public Exam, public Sports{
     int total_marks;
     public:
@@ -79,7 +75,6 @@ class Result: public Exam, public Sports{
             cout<<"Total Marks (including sports): "<<total_marks<<endl;
         }
 };
-
 int main(){
     int n;
     cout<<"Enter the number of students: ";
@@ -95,5 +90,4 @@ int main(){
         students[i].display();
     }
     delete[] students;
-    return 0;
 }
